@@ -1,0 +1,73 @@
+{
+  "snapshotId": "mantle_demo_snapshot_2026_06_14",
+  "chainId": 5000,
+  "window": "last_60_minutes",
+  "smartMoneyCohorts": [
+    {
+      "id": "mantle_defi_rotators",
+      "label": "Mantle DeFi Rotators",
+      "primaryRoute": "mETH/MNT liquidity route",
+      "windowActionTotal": 31,
+      "baselineActionTotal": 13,
+      "wallets": [
+        { "label": "wallet_alpha", "address": "0x1111111111111111111111111111111111111111", "windowActions": 6 },
+        { "label": "wallet_beta", "address": "0x2222222222222222222222222222222222222222", "windowActions": 5 },
+        { "label": "wallet_gamma", "address": "0x3333333333333333333333333333333333333333", "windowActions": 4 },
+        { "label": "wallet_delta", "address": "0x4444444444444444444444444444444444444444", "windowActions": 3 },
+        { "label": "wallet_eta", "address": "0x5555555555555555555555555555555555555555", "windowActions": 3 },
+        { "label": "wallet_theta", "address": "0x6666666666666666666666666666666666666666", "windowActions": 2 },
+        { "label": "wallet_iota", "address": "0x7777777777777777777777777777777777777777", "windowActions": 2 }
+      ]
+    }
+  ],
+  "protocolFlows": [
+    {
+      "name": "Merchant Moe",
+      "dominantPool": "mETH/MNT",
+      "currentVolumeUsd": 1840000,
+      "baselineVolumeUsd": 720000,
+      "currentTxCount": 410,
+      "baselineTxCount": 190
+    },
+    {
+      "name": "Agni Finance",
+      "dominantPool": "MNT/USDe",
+      "currentVolumeUsd": 930000,
+      "baselineVolumeUsd": 610000,
+      "currentTxCount": 205,
+      "baselineTxCount": 170
+    }
+  ],
+  "yieldAssets": [
+    {
+      "symbol": "mETH",
+      "relatedProtocol": "Mantle LSP",
+      "smartWalletNetFlowUsd": 680000,
+      "baselineNetFlowUsd": 240000,
+      "uniqueWallets": 9
+    },
+    {
+      "symbol": "USDY",
+      "relatedProtocol": "Ondo",
+      "smartWalletNetFlowUsd": 210000,
+      "baselineNetFlowUsd": 170000,
+      "uniqueWallets": 4
+    }
+  ],
+  "thresholds": {
+    "smartMoneyRotation": {
+      "minWallets": 5,
+      "minActions": 2,
+      "minActivityRatio": 1.8
+    },
+    "protocolFlowSpike": {
+      "minVolumeRatio": 1.7,
+      "minTxRatio": 1.4
+    },
+    "yieldAssetAccumulation": {
+      "minNetFlowUsd": 400000,
+      "minFlowRatio": 2
+    }
+  }
+}
+

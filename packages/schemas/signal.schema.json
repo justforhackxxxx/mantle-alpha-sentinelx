@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mantle-alpha-sentinel.local/signal.schema.json",
+  "title": "Mantle Alpha Signal",
+  "type": "object",
+  "required": [
+    "signalId",
+    "signalHash",
+    "agentId",
+    "type",
+    "target",
+    "direction",
+    "confidence",
+    "horizon",
+    "thesis",
+    "evidence",
+    "prediction"
+  ],
+  "properties": {
+    "signalId": { "type": "string" },
+    "signalHash": { "type": "string", "pattern": "^0x[a-fA-F0-9]{64}$" },
+    "agentId": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["smart_money_rotation", "protocol_flow_spike", "yield_asset_accumulation"]
+    },
+    "target": { "type": "string" },
+    "direction": { "type": "string", "enum": ["bullish", "bearish", "watch"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "horizon": { "type": "string" },
+    "thesis": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "value", "source"],
+        "properties": {
+          "label": { "type": "string" },
+          "value": {},
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "prediction": {
+      "type": "object",
+      "required": ["metric", "baseline", "target", "window"],
+      "properties": {
+        "metric": { "type": "string" },
+        "baseline": { "type": "number" },
+        "target": { "type": "number" },
+        "window": { "type": "string" }
+      }
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["pending", "hit", "miss", "invalid"]
+    }
+  }
+}
+
